@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,12 +26,13 @@ Route::prefix('/user')->group( function () {
     Route::post('/login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
 
     Route::middleware('auth:api')->group( function () {
+        Route::get('/test', [\App\Http\Controllers\Api\UserController::class, 'test']);
         Route::get('/all', [\App\Http\Controllers\Api\UserController::class, 'index']);
-        Route::get('/{user}', [\App\Http\Controllers\Api\UserController::class, 'show']);
         Route::post('/edit/{user}', [\App\Http\Controllers\Api\UserController::class, 'update']);
         Route::delete('/delete/{id}', [\App\Http\Controllers\Api\UserController::class, 'destroy']);
-    });
+        Route::get('/{user}', [\App\Http\Controllers\Api\UserController::class, 'show']);
 
+    });
 });
 
 /*
@@ -41,9 +43,9 @@ Route::prefix('/bill')->group( function () {
     Route::middleware('auth:api')->group( function () {
         Route::post('', [\App\Http\Controllers\Api\BillController::class, 'store']);
         Route::get('/all', [\App\Http\Controllers\Api\BillController::class, 'index']);
-        Route::get('/{bill}', [\App\Http\Controllers\Api\BillController::class, 'show']);
         Route::post('/edit/{bill}', [\App\Http\Controllers\Api\BillController::class, 'update']);
         Route::delete('/delete/{bill}', [\App\Http\Controllers\Api\BillController::class, 'destroy']);
+        Route::get('/{bill}', [\App\Http\Controllers\Api\BillController::class, 'show']);
     });
 
 });
