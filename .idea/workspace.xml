@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f46a73d-9a40-4a08-83c9-1f9add794056" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606557167714</updated>
-      <workItem from="1606557168763" duration="3875000" />
+      <workItem from="1606557168763" duration="6984000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1606557487316</created>
@@ -83,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606557487316</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add and configure passport&#10;create login controller">
+      <created>1606561114720</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606561114720</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,16 +95,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="add and configure passport&#10;create login controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="add and configure passport&#10;create login controller" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1606557486502">
+    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1606561114154">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606557486502" />
+    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606561114154" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606557494255">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606557494255" />
+    <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1606563638541">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="936" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606563638541" />
   </component>
 </project>

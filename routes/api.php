@@ -14,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+/*
+ * USERS
+ */
+Route::prefix('/user')->group( function () {
+
+    //Returns Bearer token
+    Route::post('/login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
+
+    Route::middleware('auth:api')->group( function () {
+        Route::get('/all', [\App\Http\Controllers\Api\UserController::class, 'index']);
+    });
+
 });
