@@ -21,10 +21,8 @@ Route::prefix('/user')->group( function () {
 
     //Create User
     Route::post('/create', [\App\Http\Controllers\Api\UserController::class, 'store']);
-
     //Returns Bearer token
     Route::post('/login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
-
 
     Route::middleware('auth:api')->group( function () {
         Route::get('/all', [\App\Http\Controllers\Api\UserController::class, 'index']);
