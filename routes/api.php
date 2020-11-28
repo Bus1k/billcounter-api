@@ -26,7 +26,6 @@ Route::prefix('/user')->group( function () {
     Route::post('/login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
 
     Route::middleware('auth:api')->group( function () {
-        Route::get('/test', [\App\Http\Controllers\Api\UserController::class, 'test']);
         Route::get('/all', [\App\Http\Controllers\Api\UserController::class, 'index']);
         Route::post('/edit/{user}', [\App\Http\Controllers\Api\UserController::class, 'update']);
         Route::delete('/delete/{id}', [\App\Http\Controllers\Api\UserController::class, 'destroy']);

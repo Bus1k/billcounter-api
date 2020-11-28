@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Bill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,7 +47,7 @@ class BillController extends Controller
             'user_id'     => Auth::id(),
             'description' => $request['description'],
             'amount'      => $request['amount'],
-            'photo'       => $request['photo']->store('bills')
+            'photo'       => $request->file('photo')->store(env('GOOGLE_DRIVE_FOLDER_ID'))
         ]);
 
         return response($bill);
@@ -92,7 +93,7 @@ class BillController extends Controller
 
             $bill->description = $request['description'];
             $bill->amount      = $request['amount'];
-            $bill->photo       = $request['photo']->store('bills');
+            $bill->photo       = $request->file('photo')->store(env('GOOGLE_DRIVE_FOLDER_ID'));
             $bill->save();
 
             return response($bill);
@@ -109,8 +110,24 @@ class BillController extends Controller
     {
         if(Auth::id() === $bill['user_id'])
         {
-            $bill->delete();
-            return response(['message' => 'Bill deleted successfully.']);
+            $filename = $bill['photo'];
+
+            $dir = '/';
+            $recursive = false; // Get subdirectories also?
+            $contents = collect(Storage::cloud()->listContents($dir, $recursive));
+
+            $file = $contents
+                ->where('type', '=', 'file')
+                ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
+                ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
+                ->first();
+
+            $result = Storage::cloud()->delete($file['path']);
+            if($result)
+            {
+                $bill->delete();
+                return response(['message' => 'Bill deleted successfully.']);
+            }
         }
         return response(['message' => 'Not Found'], 404);
     }
