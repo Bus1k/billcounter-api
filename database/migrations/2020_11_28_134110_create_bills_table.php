@@ -18,7 +18,8 @@ class CreateBillsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('description');
             $table->decimal('amount', 65, 2);
-            $table->text('photo')->nullable();
+            $table->string('photo_name')->nullable();
+            $table->string('photo_url')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

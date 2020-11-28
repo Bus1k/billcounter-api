@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f46a73d-9a40-4a08-83c9-1f9add794056" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Helpers/ImagesHelper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bill.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_134110_create_bills_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_134110_create_bills_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606557167714</updated>
-      <workItem from="1606557168763" duration="27499000" />
+      <workItem from="1606557168763" duration="33274000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1606557487316</created>
@@ -129,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606592607352</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="delete file from drive if bill was deleted">
+      <created>1606598519996</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606598519996</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,25 +155,26 @@
     <MESSAGE value="prepare bill structure" />
     <MESSAGE value="add all bill endpoints and controller methods" />
     <MESSAGE value="add google drive as a storage system" />
-    <option name="LAST_COMMIT_MESSAGE" value="add google drive as a storage system" />
+    <MESSAGE value="delete file from drive if bill was deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete file from drive if bill was deleted" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606574783863">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606599541382">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606574783863" />
-    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1606592606740">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606599541382" />
+    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1606598519433">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606592606740" />
-    <state x="1051" y="246" key="NewPhpClassDialog" timestamp="1606587644046">
+    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606598519433" />
+    <state x="1051" y="246" key="NewPhpClassDialog" timestamp="1606599455001">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1051" y="246" key="NewPhpClassDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606587644046" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606592612602">
+    <state x="1051" y="246" key="NewPhpClassDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606599455001" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606598523917">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606592612602" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606598523917" />
     <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1606563638541">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

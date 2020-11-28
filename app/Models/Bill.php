@@ -19,9 +19,8 @@ class Bill extends Model
         'user_id',
         'description',
         'amount',
-        'photo',
-        'created_at',
-        'updated_at'
+        'photo_name',
+        'photo_url',
     ];
 
     public function user()

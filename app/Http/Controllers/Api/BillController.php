@@ -1,12 +1,14 @@
 <?php
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\ImagesHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Bill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Console\Helper\Helper;
 
 class BillController extends Controller
 {
@@ -15,7 +17,7 @@ class BillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getAll()
     {
         return response(
             Bill::where('user_id', Auth::id())->get()
@@ -43,14 +45,26 @@ class BillController extends Controller
             return response($validator->errors(), 400);
         }
 
-        $bill = Bill::create([
-            'user_id'     => Auth::id(),
-            'description' => $request['description'],
-            'amount'      => $request['amount'],
-            'photo'       => $request->file('photo')->store(env('GOOGLE_DRIVE_FOLDER_ID'))
-        ]);
+        $fileName = $request->file('photo')->store(env('GOOGLE_DRIVE_FOLDER_ID'));
 
-        return response($bill);
+        if($fileName)
+        {
+            // Change file permissions
+            $photo = ImagesHelper::getGoogleImage($fileName);
+            ImagesHelper::changeImagePermission($photo);
+
+            $bill = Bill::create([
+                'user_id'     => Auth::id(),
+                'description' => $request['description'],
+                'amount'      => $request['amount'],
+                'photo_name'  => $fileName,
+                'photo_url'   => Storage::cloud()->url($photo['path'])
+            ]);
+
+            return response($bill);
+        }
+
+        return response(['message' => 'Problem with google storage'], 400);
     }
 
     /**
@@ -82,7 +96,7 @@ class BillController extends Controller
             $rules = [
                 'description' => 'required|string|min:3|max:50',
                 'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
-                'photo'       => 'required|image'
+                'photo'       => 'image'
             ];
 
             $validator = Validator::make($request->all(), $rules);
@@ -91,9 +105,21 @@ class BillController extends Controller
                 return response($validator->errors(), 400);
             }
 
+            if($request->file('photo'))
+            {
+                $photo = ImagesHelper::getGoogleImage($bill['photo_name']);
+
+                if(Storage::cloud()->delete($photo['path']))
+                {
+                    $bill->photo_name = $request->file('photo')->store(env('GOOGLE_DRIVE_FOLDER_ID'));
+                    $photo = ImagesHelper::getGoogleImage($bill->photo_name);
+                    ImagesHelper::changeImagePermission($photo);
+                    $bill->photo_url  = Storage::cloud()->url($photo['path']);
+                }
+            }
+
             $bill->description = $request['description'];
             $bill->amount      = $request['amount'];
-            $bill->photo       = $request->file('photo')->store(env('GOOGLE_DRIVE_FOLDER_ID'));
             $bill->save();
 
             return response($bill);
@@ -110,19 +136,9 @@ class BillController extends Controller
     {
         if(Auth::id() === $bill['user_id'])
         {
-            $filename = $bill['photo'];
+            $photo = ImagesHelper::getGoogleImage($bill['photo_name']);
 
-            $dir = '/';
-            $recursive = false; // Get subdirectories also?
-            $contents = collect(Storage::cloud()->listContents($dir, $recursive));
-
-            $file = $contents
-                ->where('type', '=', 'file')
-                ->where('filename', '=', pathinfo($filename, PATHINFO_FILENAME))
-                ->where('extension', '=', pathinfo($filename, PATHINFO_EXTENSION))
-                ->first();
-
-            $result = Storage::cloud()->delete($file['path']);
+            $result = Storage::cloud()->delete($photo['path']);
             if($result)
             {
                 $bill->delete();
@@ -131,4 +147,6 @@ class BillController extends Controller
         }
         return response(['message' => 'Not Found'], 404);
     }
+
+
 }

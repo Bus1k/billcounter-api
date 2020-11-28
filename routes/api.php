@@ -41,7 +41,7 @@ Route::prefix('/bill')->group( function () {
 
     Route::middleware('auth:api')->group( function () {
         Route::post('', [\App\Http\Controllers\Api\BillController::class, 'store']);
-        Route::get('/all', [\App\Http\Controllers\Api\BillController::class, 'index']);
+        Route::get('/all', [\App\Http\Controllers\Api\BillController::class, 'getAll']);
         Route::post('/edit/{bill}', [\App\Http\Controllers\Api\BillController::class, 'update']);
         Route::delete('/delete/{bill}', [\App\Http\Controllers\Api\BillController::class, 'destroy']);
         Route::get('/{bill}', [\App\Http\Controllers\Api\BillController::class, 'show']);
