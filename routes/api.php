@@ -28,7 +28,22 @@ Route::prefix('/user')->group( function () {
         Route::get('/all', [\App\Http\Controllers\Api\UserController::class, 'index']);
         Route::get('/{user}', [\App\Http\Controllers\Api\UserController::class, 'show']);
         Route::post('/edit/{user}', [\App\Http\Controllers\Api\UserController::class, 'update']);
-        Route::post('/delete/{id}', [\App\Http\Controllers\Api\UserController::class, 'destroy']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Api\UserController::class, 'destroy']);
+    });
+
+});
+
+/*
+ * BILLS
+ */
+Route::prefix('/bill')->group( function () {
+
+    Route::middleware('auth:api')->group( function () {
+        Route::post('', [\App\Http\Controllers\Api\BillController::class, 'store']);
+        Route::get('/all', [\App\Http\Controllers\Api\BillController::class, 'index']);
+        Route::get('/{bill}', [\App\Http\Controllers\Api\BillController::class, 'show']);
+        Route::post('/edit/{bill}', [\App\Http\Controllers\Api\BillController::class, 'update']);
+        Route::delete('/delete/{bill}', [\App\Http\Controllers\Api\BillController::class, 'destroy']);
     });
 
 });

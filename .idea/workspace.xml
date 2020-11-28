@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5f46a73d-9a40-4a08-83c9-1f9add794056" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606557167714</updated>
-      <workItem from="1606557168763" duration="13729000" />
+      <workItem from="1606557168763" duration="18204000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1606557487316</created>
@@ -108,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606570200873</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="prepare bill structure">
+      <created>1606571012350</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606571012350</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,21 +128,22 @@
     <MESSAGE value="test route" />
     <MESSAGE value="creating user endpoint" />
     <MESSAGE value="finish user managment" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish user managment" />
+    <MESSAGE value="prepare bill structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare bill structure" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606565437283">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606574783863">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606565437283" />
-    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1606570200338">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606574783863" />
+    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1606571011782">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606570200338" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606570206065">
+    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606571011782" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606571016613">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606570206065" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606571016613" />
     <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1606563638541">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

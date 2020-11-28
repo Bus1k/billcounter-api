@@ -1,9 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class BillController extends Controller
 {
@@ -14,17 +16,9 @@ class BillController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response(
+            Bill::where('user_id', Auth::id())->get()
+        );
     }
 
     /**
@@ -35,51 +29,89 @@ class BillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'description' => 'required|string|min:3|max:50',
+            'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
+            'photo'       => 'required|image'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if($validator->fails())
+        {
+            return response($validator->errors(), 400);
+        }
+
+        $bill = Bill::create([
+            'user_id'     => Auth::id(),
+            'description' => $request['description'],
+            'amount'      => $request['amount'],
+            'photo'       => $request['photo']->store('bills')
+        ]);
+
+        return response($bill);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Bill $bill
      */
-    public function show($id)
+    public function show(Bill $bill)
     {
-        //
+        if(Auth::id() === $bill['user_id'])
+        {
+            return $bill;
+        }
+
+        return response(['message' => 'Not Found'], 404);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param Bill $bill
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Bill $bill)
     {
-        //
+        if(Auth::id() === $bill['user_id'])
+        {
+            $rules = [
+                'description' => 'required|string|min:3|max:50',
+                'amount'      => 'required|regex:/^\d+(\.\d{1,2})?$/',
+                'photo'       => 'required|image'
+            ];
+
+            $validator = Validator::make($request->all(), $rules);
+            if($validator->fails())
+            {
+                return response($validator->errors(), 400);
+            }
+
+            $bill->description = $request['description'];
+            $bill->amount      = $request['amount'];
+            $bill->photo       = $request['photo']->store('bills');
+            $bill->save();
+
+            return response($bill);
+        }
+        return response(['message' => 'Not Found'], 404);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Bill $bill
      */
-    public function destroy($id)
+    public function destroy(Bill $bill)
     {
-        //
+        if(Auth::id() === $bill['user_id'])
+        {
+            $bill->delete();
+            return response(['message' => 'Bill deleted successfully.']);
+        }
+        return response(['message' => 'Not Found'], 404);
     }
 }

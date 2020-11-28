@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -68,6 +69,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        if(Auth::id() !== $user['id'])
+        {
+            return response(['message' => 'Not Found'], 404);
+        }
+
         $rules = [
             'password'  => 'required|string|min:6',
         ];
@@ -95,7 +101,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if($user)
+        if($user && Auth::id() === (int)$id)
         {
             $user->delete();
             return response(['message' => 'User deleted successfully.']);
