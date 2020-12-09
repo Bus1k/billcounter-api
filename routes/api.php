@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/user')->group( function () {
 
     //Create User
-    Route::post('/create', [\App\Http\Controllers\Api\UserController::class, 'store']);
+    Route::post('/register', [\App\Http\Controllers\Api\UserController::class, 'store']);
     //Returns Bearer token
     Route::post('/login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
 
