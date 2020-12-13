@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f46a73d-9a40-4a08-83c9-1f9add794056" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/sanctum.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/DefaultUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/billcounter-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/billcounter-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,6 +174,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kuj31wH5YB9jD8aebGNeAYEVHq" />
@@ -211,7 +213,9 @@
       <workItem from="1607062093472" duration="21000" />
       <workItem from="1607454379614" duration="3976000" />
       <workItem from="1607497246989" duration="713000" />
-      <workItem from="1607538955816" duration="2410000" />
+      <workItem from="1607538955816" duration="8927000" />
+      <workItem from="1607582263824" duration="28000" />
+      <workItem from="1607872763781" duration="8548000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1606557487316</created>
@@ -283,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606604287972</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remove laravel passport and create default user seeder">
+      <created>1607541508165</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607541508165</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,26 +311,29 @@
     <MESSAGE value="add google drive as a storage system" />
     <MESSAGE value="delete file from drive if bill was deleted" />
     <MESSAGE value="database changes&#10;add google drive url to table,&#10;fixes and improvements in endpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="database changes&#10;add google drive url to table,&#10;fixes and improvements in endpoints" />
+    <MESSAGE value="remove laravel passport and create default user seeder" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove laravel passport and create default user seeder" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607541288690">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607551370512">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606599541382" />
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.0.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1607541288690" />
-    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1606604287424">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.0.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1607551370512" />
+    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1607541507457">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606604287424" />
+    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.0.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1607541507457" />
     <state x="1051" y="246" key="NewPhpClassDialog" timestamp="1606599455001">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1051" y="246" key="NewPhpClassDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606599455001" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606604293588">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607541514214">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606604293588" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.0.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1607541514214" />
     <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1606563638541">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

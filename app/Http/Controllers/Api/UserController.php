@@ -39,7 +39,7 @@ class UserController extends Controller
 
         if($validator->fails())
         {
-            return response($validator->errors(), 400);
+            return response(['error' => $validator->errors()], 400);
         }
 
         User::create([

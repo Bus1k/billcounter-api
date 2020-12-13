@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
 /*
  * USERS
  */
@@ -25,12 +29,12 @@ Route::prefix('/user')->group( function () {
     //Returns Bearer token
     Route::post('/login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
 
-    Route::middleware('auth:api')->group( function () {
+    Route::middleware('auth:sanctum')->group( function () {
+        Route::post('/logout', [\App\Http\Controllers\Api\LoginController::class, 'logout']);
         Route::get('/all', [\App\Http\Controllers\Api\UserController::class, 'index']);
         Route::post('/edit/{user}', [\App\Http\Controllers\Api\UserController::class, 'update']);
         Route::delete('/delete/{id}', [\App\Http\Controllers\Api\UserController::class, 'destroy']);
         Route::get('/{user}', [\App\Http\Controllers\Api\UserController::class, 'show']);
-
     });
 });
 
@@ -39,7 +43,7 @@ Route::prefix('/user')->group( function () {
  */
 Route::prefix('/bill')->group( function () {
 
-    Route::middleware('auth:api')->group( function () {
+    Route::middleware('auth:sanctum')->group( function () {
         Route::post('', [\App\Http\Controllers\Api\BillController::class, 'store']);
         Route::get('/all', [\App\Http\Controllers\Api\BillController::class, 'getAll']);
         Route::post('/edit/{bill}', [\App\Http\Controllers\Api\BillController::class, 'update']);
