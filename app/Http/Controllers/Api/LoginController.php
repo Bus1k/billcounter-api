@@ -13,30 +13,19 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $rules = [
-            'email'     => 'required|string|email',
-            'password'  => 'required|string|min:6'
-        ];
+        $credentials = $request->only('email', 'password');
 
-        $validator = Validator::make($request->all(), $rules);
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        if($validator->fails())
-        {
-            return response(['error' => $validator->errors()], 400);
+            return response([
+                'user'  => Auth::user(),
+            ], 200);
         }
-
-        $user = User::where('email', $request->email)->first();
-
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            return response(['message' => 'Unauthorized'], 401);
-        }
-
-        $token = $user->createToken('billcounter')->plainTextToken;
 
         return response([
-            'user'  => $user,
-            'token' => $token
-        ], 200);
+            'error' => 'The provided credentials do not match our records.',
+        ]);
     }
 
     public function logout(Request $request)
