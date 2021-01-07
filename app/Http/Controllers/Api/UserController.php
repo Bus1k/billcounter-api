@@ -33,6 +33,7 @@ class UserController extends Controller
             'name'      => 'required|string|min:5|max:50',
             'email'     => 'required|string|email',
             'password'  => 'required|string|min:6',
+            'password_confirmation' => 'required|string|min:6|same:password'
         ];
 
         $validator = Validator::make($request->all(), $rules);

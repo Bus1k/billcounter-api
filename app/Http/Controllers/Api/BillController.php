@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ImagesHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Bill;
+use App\Repositories\BillRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -11,6 +12,13 @@ use Illuminate\Support\Facades\Auth;
 
 class BillController extends Controller
 {
+    private BillRepository $repository;
+
+    public function __construct(BillRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +27,7 @@ class BillController extends Controller
     public function getAll()
     {
         return response(
-            Bill::where('user_id', Auth::id())->get()
+            $this->repository->all()
         );
     }
 

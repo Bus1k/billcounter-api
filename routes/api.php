@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/test', function (Request $request) {
+    return response(['msg' => \Illuminate\Support\Facades\Auth::user()]);
 });
 
 /*
@@ -26,7 +26,7 @@ Route::prefix('/user')->group( function () {
 
     //Create User
     Route::post('/register', [\App\Http\Controllers\Api\UserController::class, 'store']);
-    //Returns Bearer token
+
     Route::post('/login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
 
     Route::middleware('auth:sanctum')->group( function () {

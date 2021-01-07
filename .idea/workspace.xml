@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5f46a73d-9a40-4a08-83c9-1f9add794056" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/sanctum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/DefaultUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/billcounter-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/billcounter-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/BillRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/BillController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +214,25 @@
       <workItem from="1607497246989" duration="713000" />
       <workItem from="1607538955816" duration="8927000" />
       <workItem from="1607582263824" duration="28000" />
-      <workItem from="1607872763781" duration="8548000" />
+      <workItem from="1607872763781" duration="8650000" />
+      <workItem from="1607895475480" duration="629000" />
+      <workItem from="1607928563822" duration="17000" />
+      <workItem from="1608229524804" duration="9451000" />
+      <workItem from="1608273236579" duration="55000" />
+      <workItem from="1608288745937" duration="157000" />
+      <workItem from="1608305020537" duration="2342000" />
+      <workItem from="1608481582691" duration="4213000" />
+      <workItem from="1608496962632" duration="2404000" />
+      <workItem from="1608531406739" duration="33000" />
+      <workItem from="1608559439636" duration="5000" />
+      <workItem from="1608632779016" duration="5433000" />
+      <workItem from="1609241606085" duration="1862000" />
+      <workItem from="1609741432049" duration="23000" />
+      <workItem from="1609950248821" duration="19000" />
+      <workItem from="1609950327099" duration="115000" />
+      <workItem from="1609950541216" duration="4040000" />
+      <workItem from="1610001648825" duration="29000" />
+      <workItem from="1610042490856" duration="2679000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1606557487316</created>
@@ -294,7 +311,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607541508165</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="changes for laravel sanctum auth">
+      <created>1607883865539</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607883865539</updated>
+    </task>
+    <task id="LOCAL-00013" summary="change login controller">
+      <created>1608483828926</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608483828926</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,31 +343,8 @@
     <MESSAGE value="delete file from drive if bill was deleted" />
     <MESSAGE value="database changes&#10;add google drive url to table,&#10;fixes and improvements in endpoints" />
     <MESSAGE value="remove laravel passport and create default user seeder" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove laravel passport and create default user seeder" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607551370512">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606599541382" />
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1040/2560.0.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1607551370512" />
-    <state x="903" y="102" key="CommitChangelistDialog2" timestamp="1607541507457">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606604287424" />
-    <state x="903" y="102" key="CommitChangelistDialog2/-1920.0.1920.1040/2560.0.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1607541507457" />
-    <state x="1051" y="246" key="NewPhpClassDialog" timestamp="1606599455001">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="1051" y="246" key="NewPhpClassDialog/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606599455001" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607541514214">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606604293588" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/2560.0.1920.1040/0.0.2560.1040@0.0.2560.1040" timestamp="1607541514214" />
-    <state x="936" y="240" width="672" height="677" key="run.anything.popup" timestamp="1606563638541">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="936" y="240" width="672" height="677" key="run.anything.popup/-1920.0.1920.1040/2560.-406.1080.1880/0.0.2560.1040@0.0.2560.1040" timestamp="1606563638541" />
+    <MESSAGE value="changes for laravel sanctum auth" />
+    <MESSAGE value="change login controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="change login controller" />
   </component>
 </project>

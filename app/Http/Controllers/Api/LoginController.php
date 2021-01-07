@@ -4,18 +4,17 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
 
             return response([
@@ -24,14 +23,17 @@ class LoginController extends Controller
         }
 
         return response([
-            'error' => 'The provided credentials do not match our records.',
-        ]);
+            'message' => 'The provided credentials do not match our records.',
+        ], 401);
     }
 
     public function logout(Request $request)
     {
-        $request->user()->tokens()->delete();
+        Auth::guard('web')->logout();
 
-        return response()->json('logout', 201);
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return response('',204);
     }
 }
