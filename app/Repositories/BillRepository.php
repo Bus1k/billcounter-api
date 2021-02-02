@@ -17,4 +17,15 @@ class BillRepository
     {
         return $this->billModel->where('user_id', Auth::id())->get();
     }
+
+    public function create(string $description, float $amount, string $fileName, string $url)
+    {
+        return $this->billModel->create([
+            'user_id'     => Auth::id(),
+            'description' => $description,
+            'amount'      => $amount,
+            'photo_name'  => $fileName,
+            'photo_url'   => $url
+        ]);
+    }
 }

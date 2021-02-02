@@ -60,18 +60,17 @@ class BillController extends Controller
             $photo = ImagesHelper::getGoogleImage($fileName);
             ImagesHelper::changeImagePermission($photo);
 
-            $bill = Bill::create([
-                'user_id'     => Auth::id(),
-                'description' => $request['description'],
-                'amount'      => $request['amount'],
-                'photo_name'  => $fileName,
-                'photo_url'   => Storage::cloud()->url($photo['path'])
-            ]);
+            $bill = $this->repository->create(
+                $request['description'],
+                $request['amount'],
+                $fileName,
+                Storage::cloud()->url($photo['path'])
+            );
 
             return response($bill);
         }
 
-        return response(['message' => 'Problem with google storage'], 400);
+        return response(['message' => 'Problem with saving the bill'], 400);
     }
 
     /**
